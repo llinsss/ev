@@ -43,3 +43,22 @@ mod Ticket {
         event_id: u128,
         owner: ContractAddress,
     }
+    #[external(v0)]
+    impl TicketImpl of ITicket {
+        fn create_event(
+            ref self: ContractState,
+            name: felt252,
+            date: felt252,
+            venue: felt252,
+            max_tickets: u128
+        ) -> u128 {
+            let caller = get_caller_address();
+            let event_id = self.events.len();
+            
+            let event = Event {
+                name,
+                date,
+                venue,
+                max_tickets,
+                owner: caller,
+            };
