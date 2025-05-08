@@ -77,3 +77,21 @@ mod Ticket {
     ) -> u128 {
         let caller = get_caller_address();
         let mut event = self.events.read(event_id);
+        // Check if event exists
+        assert(event.name != 0, 'Event does not exist');
+            
+        // Check if there are tickets available
+        let tickets_issued = self.event_tickets.read(event_id).len();
+        assert(tickets_issued < event.max_tickets, 'No tickets available');
+        
+        // Create new ticket
+        let ticket_id = self.ticket_counter.read();
+        self.tickets.write(ticket_id, caller);
+        
+        // Add ticket to event
+        let mut event_tickets = self.event_tickets.read(event_id);
+        event_tickets.append(array![ticket_id]);
+        self.event_tickets.write(event_id, event_tickets);
+        
+        // Increment counter
+        self.ticket_counter.write(ticket_id + 1);
