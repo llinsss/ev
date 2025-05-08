@@ -29,4 +29,10 @@ mod tests {
         // Check ticket owner
         let owner = Ticket::get_ticket_owner(@contract, ticket_id);
         assert(owner == dummy_address, 'Owner should match');
+        // Check event details
+        let event = Ticket::get_event_details(@contract, event_id);
+        assert(event.name == 'Concert', 'Event name should match');
+        assert(event.max_tickets == 100, 'Max tickets should match');
+    }
+}
         
