@@ -95,3 +95,19 @@ mod Ticket {
         
         // Increment counter
         self.ticket_counter.write(ticket_id + 1);
+        self.emit(Event::TicketIssued(TicketIssued {
+            ticket_id,
+            event_id,
+            owner: caller,
+        }));
+        
+        ticket_id
+    }
+    
+    fn verify_ticket(
+        ref self: ContractState,
+        ticket_id: u128,
+        event_id: u128
+    ) -> bool {
+        let owner = self.tickets.read(ticket_id);
+        let event = self.events.read(event_id);
