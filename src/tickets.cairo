@@ -111,3 +111,17 @@ mod Ticket {
     ) -> bool {
         let owner = self.tickets.read(ticket_id);
         let event = self.events.read(event_id);
+        // Check if ticket exists
+        if owner == ContractAddress::default() {
+            return false;
+        }
+        
+        // Check if ticket belongs to this event
+        let event_tickets = self.event_tickets.read(event_id);
+        let mut is_valid = false;
+        
+        for ticket in event_tickets.iter() {
+            if *ticket == ticket_id {
+                is_valid = true;
+                break;
+            }
