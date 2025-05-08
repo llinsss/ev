@@ -31,3 +31,15 @@ mod Ticket {
         EventCreated: EventCreated,
         TicketIssued: TicketIssued,
     }
+    #[derive(Drop, Serde)]
+    struct EventCreated {
+        event_id: u128,
+        name: felt252,
+    }
+    
+    #[derive(Drop, Serde)]
+    struct TicketIssued {
+        ticket_id: u128,
+        event_id: u128,
+        owner: ContractAddress,
+    }
