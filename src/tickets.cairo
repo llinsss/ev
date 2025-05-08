@@ -16,3 +16,18 @@ mod Ticket {
         // Counter for ticket IDs
         ticket_counter: u128,
     }
+    #[derive(Drop, Serde)]
+    struct Event {
+        name: felt252,
+        date: felt252,
+        venue: felt252,
+        max_tickets: u128,
+        owner: ContractAddress,
+    }
+    
+    #[event]
+    #[derive(Drop, Serde)]
+    enum Event {
+        EventCreated: EventCreated,
+        TicketIssued: TicketIssued,
+    }
