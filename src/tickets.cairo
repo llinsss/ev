@@ -125,3 +125,22 @@ mod Ticket {
                 is_valid = true;
                 break;
             }
+        }
+            
+        is_valid
+    }
+    
+    fn get_event_details(
+        ref self: ContractState,
+        event_id: u128
+    ) -> Event {
+        self.events.read(event_id)
+    }
+    
+    fn get_ticket_owner(
+        ref self: ContractState,
+        ticket_id: u128
+    ) -> ContractAddress {
+        self.tickets.read(ticket_id)
+    }
+}
