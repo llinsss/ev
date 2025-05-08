@@ -62,3 +62,18 @@ mod Ticket {
                 max_tickets,
                 owner: caller,
             };
+        };
+            
+        self.events.write(event_id, event);
+        
+        self.emit(Event::EventCreated(EventCreated { event_id, name }));
+        
+        event_id
+    }
+    
+    fn issue_ticket(
+        ref self: ContractState,
+        event_id: u128
+    ) -> u128 {
+        let caller = get_caller_address();
+        let mut event = self.events.read(event_id);
