@@ -8,3 +8,13 @@ export default function WalletButton() {
     shortenedAddress, 
     status 
   } = useWallet();
+  if (status === 'connected') {
+    return (
+      <button 
+        onClick={disconnect}
+        className="wallet-btn connected"
+      >
+        Disconnect ({shortenedAddress})
+      </button>
+    );
+  }
