@@ -18,3 +18,17 @@ export default function WalletButton() {
       </button>
     );
   }
+  return (
+    <div className="wallet-connectors">
+      {connectors.map((connector) => (
+        <button
+          key={connector.id}
+          onClick={() => connect({ connector })}
+          className={`wallet-btn ${connector.id}`}
+        >
+          Connect {connector.name}
+        </button>
+      ))}
+    </div>
+  );
+}
