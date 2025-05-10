@@ -11,3 +11,22 @@
     background-color: #FF875B;
     color: white;
   }
+  .wallet-btn.braavos {
+    background-color: #E0B137;
+    color: black;
+  }
+  
+  .wallet-btn.connected {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .wallet-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+  
+  .wallet-connectors {
+    display: flex;
+    gap: 1rem;
+  }
