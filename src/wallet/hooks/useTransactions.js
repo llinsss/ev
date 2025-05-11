@@ -9,3 +9,9 @@ export const useTxNotifications = () => {
     timestamp: tx.lastUpdatedAt
   }));
 };
+
+// Connect to provider
+const provider = new Provider({ sequencer: { network: constants.NetworkName.SN_GOERLI } });
+
+// Your deployed contract address
+const contractAddress = "0x...";
