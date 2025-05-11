@@ -15,3 +15,8 @@ const provider = new Provider({ sequencer: { network: constants.NetworkName.SN_G
 
 // Your deployed contract address
 const contractAddress = "0x...";
+// ABI from your compiled contract
+const abi = [...];
+
+// Create contract instance
+const contract = new Contract(abi, contractAddress, provider);
