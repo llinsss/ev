@@ -9,3 +9,12 @@ ReactDOM.render(
   </StarknetProvider>,
   document.getElementById('root')
 );
+const connectionStatus = {
+    'disconnected': 'Disconnected',
+    'connecting': 'Connecting...',
+    'connected': 'Connected',
+    'reconnecting': 'Reconnecting...'
+  };
+  
+  // Then add to return object
+  statusMessage: connectionStatus[status]
