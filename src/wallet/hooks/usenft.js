@@ -11,4 +11,12 @@ export const useNFTTickets = (contractAddress) => {
     const generated = generateSeatMap(venue);
     setSeats(generated);
   }, [venue]);
+  const handleSelect = (seatId) => {
+    setSelected(prev => 
+      prev.includes(seatId) 
+        ? prev.filter(id => id !== seatId)
+        : [...prev, seatId]
+    );
+    onSelect(seatId);
+  };
 }
