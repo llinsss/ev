@@ -6,3 +6,4 @@ export const useNFTTickets = (contractAddress) => {
         const balance = await contract.balanceOf(owner);
         // ... fetch token URIs
     };
+}
