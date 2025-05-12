@@ -28,4 +28,9 @@ export const useNFTTickets = (contractAddress) => {
             key={seat.id}
             x={seat.x}
             y={seat.y}
+            type={seat.type}
+            selected={selected.includes(seat.id)}
+            onClick={() => handleSelect(seat.id)}
+          />
+        ))}
 }
