@@ -143,4 +143,9 @@ mod Ticket {
     ) -> ContractAddress {
         self.tickets.read(ticket_id)
     }
+    #[external(v0)]
+fn mint_nft_ticket(ref self: ContractState, event_id: u128) {
+    let ticket_id = self.ticket_counter.read();
+    let metadata = self.generate_metadata(event_id, ticket_id);
+    self.nft_tickets.write(ticket_id, TicketNFT { /*...*/ });
 }
