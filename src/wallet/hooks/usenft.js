@@ -19,4 +19,13 @@ export const useNFTTickets = (contractAddress) => {
     );
     onSelect(seatId);
   };
+  return (
+    <Stage width={800} height={500}>
+      <Layer>
+        {/* 80 lines of rendering logic */}
+        {seats.map(seat => (
+          <SeatElement
+            key={seat.id}
+            x={seat.x}
+            y={seat.y}
 }
