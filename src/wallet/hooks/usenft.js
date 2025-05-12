@@ -6,4 +6,9 @@ export const useNFTTickets = (contractAddress) => {
         const balance = await contract.balanceOf(owner);
         // ... fetch token URIs
     };
+    //... seat generation logic
+  useEffect(() => {
+    const generated = generateSeatMap(venue);
+    setSeats(generated);
+  }, [venue]);
 }
