@@ -31,6 +31,16 @@ export const useNFTTickets = (contractAddress) => {
             type={seat.type}
             selected={selected.includes(seat.id)}
             onClick={() => handleSelect(seat.id)}
-          />
+        import { useEventData } from '../hooks/useEventData';
+
+export default function RecommendationEngine() {
+  const { events, attendees } = useEventData();
+  const [insights, setInsights] = useState([]);
+
+  useEffect(() => {
         ))}
+        ))}
+      </Layer>
+    </Stage>
+  );
 }
