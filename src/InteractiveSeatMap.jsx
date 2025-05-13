@@ -21,7 +21,7 @@ export default function InteractiveSeatMap({ venue, onSelect }) {
   return (
     <Stage width={800} height={500}>
       <Layer>
-        {/* 80 lines of rendering logic */}
+        {/*rendering logic */}
         {seats.map(seat => (
           <SeatElement
             key={seat.id}
@@ -32,3 +32,11 @@ export default function InteractiveSeatMap({ venue, onSelect }) {
             onClick={() => handleSelect(seat.id)}
           />
         ))}
+        {/* Venue boundaries and labels */}
+        <VenueOutline 
+          dimensions={venue.dimensions}
+        />
+      </Layer>
+    </Stage>
+  );
+}
