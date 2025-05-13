@@ -62,4 +62,15 @@ export default function RecommendationEngine() {
   return (
     <div className="insights-container"> 
     </div>
+    visualization components */}
+      {insights.map(insight => (
+        <InsightCard 
+          key={insight.id}
+          title={insight.title}
+          data={insight.data}
+          action={insight.action}
+        />
+      ))}
+    </div>
+  );
 }
