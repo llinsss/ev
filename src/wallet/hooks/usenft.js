@@ -43,4 +43,13 @@ export default function RecommendationEngine() {
       </Layer>
     </Stage>
   );
+  const fetchInsights = async () => {
+      // 40 lines of data processing
+      const response = await fetch('/api/ai/insights', {
+        method: 'POST',
+        body: JSON.stringify({
+          events,
+          attendees
+        })
+      });
 }
