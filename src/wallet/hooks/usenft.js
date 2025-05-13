@@ -52,4 +52,14 @@ export default function RecommendationEngine() {
           attendees
         })
       });
+       visualization logic
+      setInsights(processInsights(response.data));
+    };
+    
+    fetchInsights();
+  }, [events]);
+
+  return (
+    <div className="insights-container"> 
+    </div>
 }
