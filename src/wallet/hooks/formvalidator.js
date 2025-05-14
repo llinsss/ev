@@ -5,3 +5,6 @@ const validate = () => {
       errors.tickets = 'Invalid pricing';
     return errors;
   };
+  const ThemeToggle = () => {
+    const [darkMode, setDarkMode] = useLocalStorage('darkMode', false);
+    return (
