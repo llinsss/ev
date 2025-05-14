@@ -8,3 +8,8 @@ const validate = () => {
   const ThemeToggle = () => {
     const [darkMode, setDarkMode] = useLocalStorage('darkMode', false);
     return (
+        button onClick={() => setDarkMode(!darkMode)}>
+      {darkMode ? '☀️' : '🌙'}
+    </button>
+  );
+};
