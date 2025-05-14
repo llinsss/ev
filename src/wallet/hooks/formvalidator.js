@@ -12,4 +12,10 @@ const validate = () => {
       {darkMode ? '☀️' : '🌙'}
     </button>
   );
+  const exportToCSV = () => {
+    const headers = ['Name', 'Date', 'Attendees'];
+    const csv = [headers, ...events.map(e => 
+      [e.title, e.date, e.attendees])].join('\n');
+    downloadFile(csv, 'events.csv');
+  }
 };
