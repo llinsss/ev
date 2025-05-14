@@ -18,4 +18,11 @@ const validate = () => {
       [e.title, e.date, e.attendees])].join('\n');
     downloadFile(csv, 'events.csv');
   }
+};export const useRevenueSplit = (splitterAddress) => {
+    const { execute } = useStarknetExecute({
+        calls: [{
+            contractAddress: splitterAddress,
+            entrypoint: 'distribute'
+        }]
+    });
 };
